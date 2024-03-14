@@ -16,7 +16,16 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: Container(color: Colors.amber),
+      home: Container(
+        decoration: BoxDecoration(
+          color: Colors.purple,
+          image: DecorationImage(
+            image: Image.asset(
+              'assets/images/default_flutter_image.png',
+            ).image,
+          ),
+        ),
+      ),
     );
   }
 }
