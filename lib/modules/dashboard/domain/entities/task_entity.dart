@@ -14,4 +14,9 @@ class TaskEntity {
     required this.isFinished,
     this.img = '/assets/images/default_flutter_image.png',
   });
+
+  @override
+  String toString() {
+    return 'Name: $name';
+  }
 }

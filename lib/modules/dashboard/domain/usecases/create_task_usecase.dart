@@ -1,10 +1,12 @@
-import 'package:personal_flutter_todo/modules/dashboard/domain/entities/task_entity.dart';
-import 'package:personal_flutter_todo/modules/dashboard/domain/repositories/i_task_repository.dart';
+import 'package:dartz/dartz.dart';
+
+import '../entities/task_entity.dart';
+import '../repositories/i_task_repository.dart';
 
 /// Interface do Usecase para criar uma tarefa
 ///
 abstract class ICreateTaskUsecase {
-  Future<void> call(TaskEntity taskEntity);
+  Future<Either<Exception, void>> call(TaskEntity taskEntity);
 }
 
 /// Implementação do Usecase para criar uma tarefa. Executa a inserção do item em um armazenamento.
@@ -17,7 +19,12 @@ class CreateTaskUsecaseImpl implements ICreateTaskUsecase {
   final ITaskRepository _taskRepository;
 
   @override
-  Future<void> call(TaskEntity taskEntity) async {
-    return await _taskRepository.create(taskEntity);
+  Future<Either<Exception, void>> call(TaskEntity taskEntity) async {
+    try {
+      await _taskRepository.create(taskEntity);
+      return const Right(null);
+    } on Exception catch (exception) {
+      return Left(exception);
+    }
   }
 }
