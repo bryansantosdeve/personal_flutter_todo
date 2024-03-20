@@ -1,9 +1,9 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:personal_flutter_todo/modules/dashboard/domain/entities/task_entity.dart';
-import 'package:personal_flutter_todo/modules/dashboard/domain/repositories/i_task_repository.dart';
-import 'package:personal_flutter_todo/modules/dashboard/domain/usecases/get_all_tasks_usecase.dart';
+import 'package:personal_flutter_todo/modules/dashboard/core/entities/task_entity.dart';
+import 'package:personal_flutter_todo/modules/dashboard/core/repositories/i_task_repository.dart';
+import 'package:personal_flutter_todo/modules/dashboard/core/usecases/get_all_tasks_usecase.dart';
 
 /// Mock do repositório utilizado para o usecase testado.
 ///

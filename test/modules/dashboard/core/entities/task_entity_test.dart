@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:personal_flutter_todo/modules/dashboard/domain/entities/task_entity.dart';
+import 'package:personal_flutter_todo/modules/dashboard/core/entities/task_entity.dart';
 
 /// Classe de teste para a entidade "TaskEntity".
 ///

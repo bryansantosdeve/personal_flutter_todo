@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
-import 'package:personal_flutter_todo/modules/dashboard/domain/entities/task_entity.dart';
-import 'package:personal_flutter_todo/modules/dashboard/domain/repositories/i_task_repository.dart';
+import 'package:personal_flutter_todo/modules/dashboard/core/entities/task_entity.dart';
+import 'package:personal_flutter_todo/modules/dashboard/core/repositories/i_task_repository.dart';
 
 /// Interface do Usecase para recuperar uma tarefa
 ///
