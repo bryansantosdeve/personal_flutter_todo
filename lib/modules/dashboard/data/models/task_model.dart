@@ -6,7 +6,7 @@ class TaskModel extends TaskEntity {
       required super.difficulty,
       required super.isFinished});
 
-  Map<String, dynamic> toJson(TaskEntity domain) {
+  static Map<String, dynamic> toJson(TaskEntity domain) {
     return {
       'name': domain.name,
       'difficulty': domain.difficulty,
@@ -14,7 +14,7 @@ class TaskModel extends TaskEntity {
     };
   }
 
-  TaskEntity fromJson(Map<String, dynamic> json) {
+  static TaskEntity fromJson(Map<String, dynamic> json) {
     return TaskEntity(
         name: json['name'],
         difficulty: json['difficulty'],
