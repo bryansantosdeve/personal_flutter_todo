@@ -1,5 +1,7 @@
 /// Entidade de uma tarefa.
 class TaskEntity {
+  late String id;
+
   final String name;
 
   final int difficulty;
@@ -17,6 +19,10 @@ class TaskEntity {
 
   @override
   String toString() {
-    return '\n { Name: $name Difficulty: $difficulty, isFinished: $isFinished } ';
+    return '\n {Id: $id Name: $name Difficulty: $difficulty isFinished: $isFinished } ';
+  }
+
+  void setId(String id) {
+    this.id = id;
   }
 }

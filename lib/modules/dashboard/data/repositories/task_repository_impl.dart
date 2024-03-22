@@ -17,6 +17,7 @@ class TaskRepositoryImpl implements ITaskRepository {
   @override
   Future<Either<Exception, void>> create(TaskEntity domain) async {
     try {
+      domain.setId(_idGenerator());
       return await _taskDatasource.create(domain);
     } on Exception {
       rethrow;
@@ -30,5 +31,10 @@ class TaskRepositoryImpl implements ITaskRepository {
     } on Exception {
       rethrow;
     }
+  }
+
+  String _idGenerator() {
+    final createdAt = DateTime.now();
+    return createdAt.microsecondsSinceEpoch.toString();
   }
 }

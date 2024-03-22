@@ -10,6 +10,7 @@ class TaskModel extends TaskEntity {
   /// Método para conversão de um objeto para o formato Json.
   static Map<String, dynamic> toJson(TaskEntity domain) {
     return {
+      'id': domain.id,
       'name': domain.name,
       'difficulty': domain.difficulty,
       'is_finished': domain.isFinished,
@@ -19,8 +20,9 @@ class TaskModel extends TaskEntity {
   /// Método para conversão de dados em formato Json para um objeto do tipo "TaskEntity".
   static TaskEntity fromJson(Map<String, dynamic> json) {
     return TaskEntity(
-        name: json['name'],
-        difficulty: json['difficulty'],
-        isFinished: json['is_finished']);
+      name: json['name'],
+      difficulty: json['difficulty'],
+      isFinished: json['is_finished'],
+    );
   }
 }
