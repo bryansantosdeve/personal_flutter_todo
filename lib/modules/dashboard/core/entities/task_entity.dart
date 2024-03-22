@@ -17,6 +17,6 @@ class TaskEntity {
 
   @override
   String toString() {
-    return 'Name: $name';
+    return '\n { Name: $name Difficulty: $difficulty, isFinished: $isFinished } ';
   }
 }

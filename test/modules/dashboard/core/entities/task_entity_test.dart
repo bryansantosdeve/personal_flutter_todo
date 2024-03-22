@@ -4,13 +4,13 @@ import 'package:personal_flutter_todo/modules/dashboard/core/entities/task_entit
 /// Classe de teste para a entidade "TaskEntity".
 /// TODO: Melhorar descrição dos testes
 void main() {
-  group('Test Task Entity', () {
+  group('This entity should', () {
     const name = 'Create a Flutter app';
     const difficulty = 5;
     const isFinished = false;
 
     test(
-      'Create an object',
+      'create an object',
       () {
         final task = TaskEntity(
             name: name, difficulty: difficulty, isFinished: isFinished);
@@ -22,7 +22,7 @@ void main() {
     );
 
     test(
-      'Update an object',
+      'update an object',
       () {
         final task = TaskEntity(
             name: name, difficulty: difficulty, isFinished: isFinished);
