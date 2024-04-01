@@ -9,7 +9,6 @@ import 'package:personal_flutter_todo/modules/dashboard/data/models/task_model.d
 /// Implementação do Datasource que representa a classe principal para persistir dados localmente na aplicação. Além disso, é responsável por administrar a conversão de dados entre
 /// entidades e modelos do sistema.
 ///
-/// TODO: Rever integração de dependências das dependências
 class LocalTaskDatasourceImpl implements ITaskDatasource {
   LocalTaskDatasourceImpl(this._storage);
   final LocalStorage _storage;
@@ -37,8 +36,21 @@ class LocalTaskDatasourceImpl implements ITaskDatasource {
   }
 
   @override
-  Future<Either<Exception, List<TaskEntity>>> getAll() {
-    // TODO: implement create
-    throw UnimplementedError();
+  Future<Either<Exception, TaskEntity>> get(String key) async {
+    try {
+      _jsonCacheLocalStorage = _init();
+
+      final json = await _jsonCacheLocalStorage.value(key);
+
+      if (json == null || json.isEmpty) {
+        return Left(Exception());
+      }
+
+      final domain = TaskModel.fromJson(json);
+
+      return Right(domain);
+    } on Exception catch (exception) {
+      return Left(exception);
+    }
   }
 }

@@ -7,5 +7,5 @@ import 'package:personal_flutter_todo/modules/dashboard/core/entities/task_entit
 abstract class ITaskDatasource {
   Future<Either<Exception, void>> create(TaskEntity domain);
 
-  Future<Either<Exception, List<TaskEntity>>> getAll();
+  Future<Either<Exception, TaskEntity>> get(String key);
 }

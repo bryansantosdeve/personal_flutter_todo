@@ -25,9 +25,13 @@ class TaskRepositoryImpl implements ITaskRepository {
   }
 
   @override
-  Future<Either<Exception, List<TaskEntity>>> getAll() async {
+  Future<Either<Exception, TaskEntity>> get(String key) async {
     try {
-      return await _taskDatasource.getAll();
+      final result = await _taskDatasource.get(key);
+      return result.fold(
+        (exception) => Left(exception),
+        (domain) => Right(domain),
+      );
     } on Exception {
       rethrow;
     }

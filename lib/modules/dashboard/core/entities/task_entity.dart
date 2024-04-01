@@ -8,14 +8,11 @@ class TaskEntity {
 
   final bool isFinished;
 
-  final String img;
-
-  TaskEntity({
-    required this.name,
-    required this.difficulty,
-    required this.isFinished,
-    this.img = '/assets/images/default_flutter_image.png',
-  });
+  TaskEntity(
+      {required this.name,
+      required this.difficulty,
+      required this.isFinished,
+      this.id = ''});
 
   @override
   String toString() {

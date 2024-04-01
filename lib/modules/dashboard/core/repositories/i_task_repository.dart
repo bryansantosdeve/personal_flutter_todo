@@ -7,5 +7,5 @@ import '../entities/task_entity.dart';
 abstract class ITaskRepository {
   Future<Either<Exception, void>> create(TaskEntity domain);
 
-  Future<Either<Exception, List<TaskEntity>>> getAll();
+  Future<Either<Exception, TaskEntity>> get(String key);
 }

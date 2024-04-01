@@ -6,13 +6,14 @@ void main() {
   late TaskEntity entity;
   late Map<String, dynamic> json;
 
+  const id = '2';
   const name = 'foo';
   const difficulty = 5;
   const isFinished = false;
 
   setUpAll(() {
-    entity =
-        TaskEntity(name: name, difficulty: difficulty, isFinished: isFinished);
+    entity = TaskEntity(
+        name: name, difficulty: difficulty, isFinished: isFinished, id: id);
 
     json = {'name': name, 'difficulty': difficulty, 'is_finished': isFinished};
   });
@@ -23,7 +24,12 @@ void main() {
 
       expect(result, isNotNull);
       expect(result, isNotEmpty);
-      expect(result.length, 3);
+      expect(result.length, 4);
+
+      expect(result.containsKey('id'), true);
+      expect(result.containsValue(id), true);
+      expect(result['id'], isNotNull);
+      expect(result['id'], id);
 
       expect(result.containsKey('name'), true);
       expect(result.containsValue(name), true);
